@@ -248,7 +248,7 @@
                             <div class="row">
                                 <div class="col-6 form-group">
                                     <select name="TIPO_DOCUMENTO" class="custom-select px-4" style="height: 50px;">
-                                        <option value="" disabled selected>Seleccione tipo doccumento</option>
+                                        <option value="" disabled selected>Seleccione tipo documento</option>
                                         <option value="CC">Cedula Ciudadania</option>
                                         <option value="TD">Tarjeta Identidad</option>
                                         <option value="RC">Regristro Civil</option>
