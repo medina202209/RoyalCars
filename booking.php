@@ -263,7 +263,7 @@
                                         required="required">
                                 </div>
                                 <div class="col-6 form-group">
-                                    <label for="start">Fecha Nacimiento</label>
+                                    <label z>Fecha Nacimiento</label>
                                     <input type="date" name="FECHA_NACIMIENTO" class="form-control p-4" required="required">
                                 </div>
                             </div>
@@ -368,6 +368,7 @@
                             <div class="row">
                                 <div class="col-6 form-group">
                                     <div data-target-input="nearest">
+                                        <label for="">Fecha recoge</label>
                                         <input name="fecha_recogida" type="date" class="form-control p-4 datetimepicker-input"
                                             placeholder="Fecha De Recogida"
                                             data-toggle="datetimepicker" />
@@ -376,6 +377,7 @@
 
                                 <div class="col-6 form-group">
                                     <div data-target-input="nearest">
+                                        <label for="">Fecha Entrega</label>
                                         <input name="fecha_entrega" type="date" class="form-control p-4 datetimepicker-input"
                                             placeholder="Fecha De Entrega"
                                             data-toggle="datetimepicker" />

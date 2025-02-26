@@ -108,61 +108,72 @@
     <!-- Navbar End -->
 
 
-    <!-- Search Start -->
-    <div class="container-fluid bg-white pt-3 px-lg-5">
-        <div class="row mx-n2">
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" style="height: 50px;">
-                    <option selected>Ubicacion Recogida</option>
-                    <option value="1">Pereira</option>
-                    <option value="2">Dosquebradas</option>
-                    <option value="3">Santa Rosa</option>
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" style="height: 50px;">
-                    <option selected>Ubicacion Entrega</option>
-                    <option value="1">Pereira</option>
-                    <option value="2">Dosquebradas</option>
-                    <option value="3">Santa Rosa</option>
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <div class="date mb-3" id="date" data-target-input="nearest">
-                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Fecha De Recogida"
-                        data-target="#date" data-toggle="datetimepicker" />
-                </div>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <div class="time mb-3" id="time" data-target-input="nearest">
-                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Hora De Recogida"
-                        data-target="#time" data-toggle="datetimepicker" />
-                </div>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <select class="custom-select px-4 mb-3" style="height: 50px;">
-                    <option selected>Seleccion Vehiculo</option>
-                    <option value="1">Car 1</option>
-                    <option value="2">Car 1</option>
-                    <option value="3">Car 1</option>
-                </select>
-            </div>
-            <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
-            </div>
-        </div>
-    </div>
-    <!-- Search End -->
 
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
-        <h1 class="display-3 text-uppercase text-white mb-3">Reserva de coche</h1>
-        <div class="d-inline-flex text-white">
-            <h6 class="text-uppercase m-0"><a class="text-white" href="index.html">Pagina principal</a></h6>
-            <h6 class="text-body m-0 px-3">/</h6>
-            <h6 class="text-uppercase text-body m-0">Reserva de coche</h6>
-        </div>
+        <!-- formulario de agregar -->
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Mostrar datos de la tabla tbreserva -->
+                    <div class="container">
+                        <h2 class="mb-4" style="color: white;">Reservas Realizadas</h2>
+                        <table style="color: black;" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Ciudad Recoge</th>
+                                    <th>Ciudad Entrega</th>
+                                    <th>Tipo Vehículo</th>
+                                    <th>Fecha Recoge</th>
+                                    <th>Fecha Devolución</th>
+                                    <th>ID Cliente</th>
+                                    <th>Número Adultos</th>
+                                    <th>Número Niños</th>
+                                    <th>Observación</th>
+                                    <th>Gestion Reserva</th>
+                                </tr>
+                            </thead>
+                            <tbody style="color: white;">
+                                <?php
+                                include('conexion.php');
+                                $query = "SELECT * FROM tbreserva";
+                                $result = mysqli_query($conexion, $query);
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['ID_RESERVA'] . "</td>";
+                                    echo "<td>" . $row['CUIDAD_RECOGE'] . "</td>";
+                                    echo "<td>" . $row['CUIDAD_ENTREGA'] . "</td>";
+                                    echo "<td>" . $row['ID_TIPO_VEHICULO'] . "</td>";
+                                    echo "<td>" . $row['FECHA_RECOGE'] . "</td>";
+                                    echo "<td>" . $row['FECHA_DEVOLUCION'] . "</td>";
+                                    echo "<td>" . $row['ID_CLIENTE'] . "</td>";
+                                    echo "<td>" . $row['NUMERO_ADULTOS'] . "</td>";
+                                    echo "<td>" . $row['NUMERO_NINOS'] . "</td>";
+                                    echo "<td>" . $row['OBSERVACION'] . "</td>";
+                                    echo "<td style='color: white;'>
+                                            <a href='eliminarReserva.php?id=" . $row['ID_RESERVA'] . "' class='d-grid gap-2 d-md-block btn btn-primary' style='margin-right: 5px;'>Eliminar</a>
+                                            <br>
+                                            <a href='editarReserva.php?id=" . $row['ID_RESERVA'] . "' class='d-grid gap-2 d-md-block btn btn-primary' style='margin-right: 5px;''>Editar</a>
+                                          </td>";
+                                    echo "</tr>";
+                                }
+
+                                mysqli_close($conexion);
+                                ?>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                
+        </form>
+
+        
+
+
     </div>
     <!-- Page Header Start -->
 
@@ -171,270 +182,219 @@
 
 
     <!-- Car Booking Start -->
-    <div class="container-fluid pb-5">
-        <div class="container">
+    <div class=" container-fluid pb-5">
+                                        <div class="container">
 
 
-            <!--captura lo que se envia por el formulario con el boton enviar-->
-            <?php
+                                            <!--captura lo que se envia por el formulario con el boton enviar-->
+                                            <?php
 
-            // Recoge los datos enviados desde el formulario
-            if (isset($_POST['enviar'])) {
+                                            // Recoge los datos enviados desde el formulario
+                                            if (isset($_POST['enviar'])) {
 
-                //Datos del cliente
-                $tipo_documento = $_POST['TIPO_DOCUMENTO'];
-                $documento = $_POST['DOCUMENTO'];
-                $nombre_cliente = $_POST['NOMBRE_CLIENTE'];
-                $fecha_nacimiento = $_POST['FECHA_NACIMIENTO'];
-                $correo = $_POST['EMAIL'];
-                $sexo = $_POST['SEXO'];
-                $direccion_cliente = $_POST['DIRECION_CLIENTE'];
-                $id_cuidad = $_POST['ID_CIUDAD'];
-                $tarjeta = $_POST['TARJETA_CREDITO'];
-                $id_banco = $_POST['ID_BANCO'];
+                                                //Datos del cliente
+                                                $tipo_documento = $_POST['TIPO_DOCUMENTO'];
+                                                $documento = $_POST['DOCUMENTO'];
+                                                $nombre_cliente = $_POST['NOMBRE_CLIENTE'];
+                                                $fecha_nacimiento = $_POST['FECHA_NACIMIENTO'];
+                                                $correo = $_POST['EMAIL'];
+                                                $sexo = $_POST['SEXO'];
+                                                $direccion_cliente = $_POST['DIRECION_CLIENTE'];
+                                                $id_cuidad = $_POST['ID_CIUDAD'];
+                                                $tarjeta = $_POST['TARJETA_CREDITO'];
+                                                $id_banco = $_POST['ID_BANCO'];
 
-                //Datos de la reserva
-                $ubicacion_Recogida = $_POST['ubicacion_Recogida'];
-                $ubicacion_Entrega = $_POST['ubicacion_Entrega'];
-                $tipo_vehiculo = $_POST['tipo_vehiculo'];
-                $fecha_recogida = $_POST['fecha_recogida'];
-                $fecha_devolucion = $_POST['fecha_entrega'];
-                $id_cliente = $_POST['DOCUMENTO'];
-                $Num_adultos = $_POST['Num_adultos'];
-                $Num_niños = $_POST['Num_niños'];
-                $Observacion = $_POST['Observacion'];
+                                                //Datos de la reserva
+                                                $ubicacion_Recogida = $_POST['ubicacion_Recogida'];
+                                                $ubicacion_Entrega = $_POST['ubicacion_Entrega'];
+                                                $tipo_vehiculo = $_POST['tipo_vehiculo'];
+                                                $fecha_recogida = $_POST['fecha_recogida'];
+                                                $fecha_devolucion = $_POST['fecha_entrega'];
+                                                $id_cliente = $_POST['DOCUMENTO'];
+                                                $Num_adultos = $_POST['Num_adultos'];
+                                                $Num_niños = $_POST['Num_niños'];
+                                                $Observacion = $_POST['Observacion'];
 
 
-                // Incluye el archivo de conexión a la base de datos
-                include('conexion.php');
+                                                // Incluye el archivo de conexión a la base de datos
+                                                include('conexion.php');
 
-                // Crea una consulta SQL para insertar los datos en la tabla 'clientes'
-                $sql_cliente = "insert into tbclientes(TIPO_DOCUMENTO, DOCUMENTO, NOMBRE_CLIENTE, FECHA_NACIMIENTO, EMAIL, SEXO, DIRECION_CLIENTE, ID_CIUDAD, TARJETA_CREDITO, ID_BANCO ) 
+                                                // Crea una consulta SQL para insertar los datos en la tabla 'clientes'
+                                                $sql_cliente = "insert into tbclientes(TIPO_DOCUMENTO, DOCUMENTO, NOMBRE_CLIENTE, FECHA_NACIMIENTO, EMAIL, SEXO, DIRECION_CLIENTE, ID_CIUDAD, TARJETA_CREDITO, ID_BANCO ) 
                         values('" . $tipo_documento . "', '" . $documento . "','" . $nombre_cliente . "','" . $fecha_nacimiento . "', '" . $correo . "','" . $sexo . "','" . $direccion_cliente . "', '" . $id_cuidad . "', '" . $tarjeta . "', '" . $id_banco . "' )";
 
-                $sql_reserva = "insert into tbreserva(CUIDAD_RECOGE,CUIDAD_ENTREGA,ID_TIPO_VEHICULO,FECHA_RECOGE,FECHA_DEVOLUCION,ID_CLIENTE,NUMERO_ADULTOS,NUMERO_NINOS,OBSERVACION) 
+                                                $sql_reserva = "insert into tbreserva(CUIDAD_RECOGE,CUIDAD_ENTREGA,ID_TIPO_VEHICULO,FECHA_RECOGE,FECHA_DEVOLUCION,ID_CLIENTE,NUMERO_ADULTOS,NUMERO_NINOS,OBSERVACION) 
                         values ('" . $ubicacion_Recogida . "', '" . $ubicacion_Entrega . "','" . $tipo_vehiculo . "', '" . $fecha_recogida . "', '" . $fecha_devolucion . "','" . $id_cliente . "', '" . $Num_adultos . "', '" . $Num_niños . "', '" . $Observacion . "')";
 
-                // Ejecuta la consulta y guarda el resultado
-                $resultado_cliente = mysqli_query($conexion, $sql_cliente);
-                $resultado_reserva = mysqli_query($conexion, $sql_reserva);
+                                                // Ejecuta la consulta y guarda el resultado
+                                                $resultado_cliente = mysqli_query($conexion, $sql_cliente);
+                                                $resultado_reserva = mysqli_query($conexion, $sql_reserva);
 
-                $resultado = $resultado_cliente && $resultado_reserva;
+                                                $resultado = $resultado_cliente && $resultado_reserva;
 
-                // Verifica si la consulta fue exitosa y muestra un mensaje de éxito o error mediante JavaScript
-                if ($resultado) {
-                    echo "<script language='JavaScript'>
+                                                // Verifica si la consulta fue exitosa y muestra un mensaje de éxito o error mediante JavaScript
+                                                if ($resultado) {
+                                                    echo "<script language='JavaScript'>
 						alert('Los datos fueron ingresados a la BD correctamente');
 						location.assign('booking.php');
 					</script>";
-                } else {
-                    echo "<script language='JavaScript'>
+                                                } else {
+                                                    echo "<script language='JavaScript'>
 						alert('Los datos NO pudieron ser ingresados a la BD');
 						location.assign('booking.php');
 					</script>";
-                }
+                                                }
 
-                // Cierra la conexión a la base de datos
-                mysqli_close($conexion);
-            }
-            ?>
+                                                // Cierra la conexión a la base de datos
+                                                mysqli_close($conexion);
+                                            }
+                                            ?>
 
-            <!-- formulario de agregar -->
-            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <!-- Mostrar datos de la tabla tbreserva -->
-                        <div class="container">
-                            <h2 class="mb-4">Reservas Realizadas</h2>
-                            <table class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Ciudad Recoge</th>
-                                        <th>Ciudad Entrega</th>
-                                        <th>Tipo Vehículo</th>
-                                        <th>Fecha Recoge</th>
-                                        <th>Fecha Devolución</th>
-                                        <th>ID Cliente</th>
-                                        <th>Número Adultos</th>
-                                        <th>Número Niños</th>
-                                        <th>Observación</th>
-                                        <th>Gestion Reserva</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    include('conexion.php');
-                                    $query = "SELECT * FROM tbreserva";
-                                    $result = mysqli_query($conexion, $query);
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row['ID_RESERVA'] . "</td>";
-                                        echo "<td>" . $row['CUIDAD_RECOGE'] . "</td>";
-                                        echo "<td>" . $row['CUIDAD_ENTREGA'] . "</td>";
-                                        echo "<td>" . $row['ID_TIPO_VEHICULO'] . "</td>";
-                                        echo "<td>" . $row['FECHA_RECOGE'] . "</td>";
-                                        echo "<td>" . $row['FECHA_DEVOLUCION'] . "</td>";
-                                        echo "<td>" . $row['ID_CLIENTE'] . "</td>";
-                                        echo "<td>" . $row['NUMERO_ADULTOS'] . "</td>";
-                                        echo "<td>" . $row['NUMERO_NINOS'] . "</td>";
-                                        echo "<td>" . $row['OBSERVACION'] . "</td>";
-                                        echo "<td><a href='eliminarReserva.php?id=" . $row['ID_RESERVA'] . "'>Eliminar</a>
-                                                <a href='editarReserva.php?id=" . $row['ID_RESERVA'] . "'>Editar</a></td>";
-                                        echo "</tr>";
-                                    }
-                                    mysqli_close($conexion);
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
 
+                                        </div>
+
+                                </div>
                     </div>
-            </form>
-        </div>
 
-    </div>
-    </div>
-
-    <!-- formulario de agregar -->
+                    <!-- formulario de agregar -->
 
 
 
 
-    </div>
+                </div>
 
 
-    <!-- Vendor Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="owl-carousel vendor-carousel">
-                <div class="bg-light p-4">
-                    <img src="img/vendor-1.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-2.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-3.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-4.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-5.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-6.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-7.png" alt="">
-                </div>
-                <div class="bg-light p-4">
-                    <img src="img/vendor-8.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Vendor End -->
-
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
-        <div class="row pt-5">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Get In Touch</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-white mr-3"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope text-white mr-3"></i>royalcars@gmail.com</p>
-                <h6 class="text-uppercase text-white py-2">Follow Us</h6>
-                <div class="d-flex justify-content-start">
-                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-lg btn-dark btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Enlaces útiles</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Politica
-                        Privada</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Terminos &
-                        Condiciones</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Nuevos
-                        Miembros</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Programa
-                        Afiliados</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Devoluciones y
-                        Reembolso</a>
-                    <a class="text-body" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Ayuda y Preguntas
-                        Frecuentes</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Car Gallery</h4>
-                <div class="row mx-n1">
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-2.jpg" alt=""></a>
-                    </div>
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-3.jpg" alt=""></a>
-                    </div>
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-4.jpg" alt=""></a>
-                    </div>
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-5.jpg" alt=""></a>
-                    </div>
-                    <div class="col-4 px-1 mb-2">
-                        <a href=""><img class="w-100" src="img/gallery-6.jpg" alt=""></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Newsletter</h4>
-                <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed
-                    kasd et</p>
-                <div class="w-100 mb-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-dark border-dark" style="padding: 25px;"
-                            placeholder="Your Email">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary text-uppercase px-3">Sign Up</button>
+                <!-- Vendor Start -->
+                <div class="container-fluid py-5">
+                    <div class="container py-5">
+                        <div class="owl-carousel vendor-carousel">
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-1.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-2.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-3.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-4.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-5.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-6.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-7.png" alt="">
+                            </div>
+                            <div class="bg-light p-4">
+                                <img src="img/vendor-8.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <i>Lorem sit sed elitr sed kasd et</i>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
-        <p class="mb-2 text-center text-body">&copy; <a href="#">Proyecto Final Lenguaje Programacion 1</a>. Reservados
-            todos los derechos. </p>
-
-    </div>
-    <!-- Footer End -->
+                <!-- Vendor End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+                <!-- Footer Start -->
+                <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+                    <div class="row pt-5">
+                        <div class="col-lg-3 col-md-6 mb-5">
+                            <h4 class="text-uppercase text-light mb-4">Get In Touch</h4>
+                            <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>123 Street, New York, USA</p>
+                            <p class="mb-2"><i class="fa fa-phone-alt text-white mr-3"></i>+012 345 67890</p>
+                            <p><i class="fa fa-envelope text-white mr-3"></i>royalcars@gmail.com</p>
+                            <h6 class="text-uppercase text-white py-2">Follow Us</h6>
+                            <div class="d-flex justify-content-start">
+                                <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-lg btn-dark btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-5">
+                            <h4 class="text-uppercase text-light mb-4">Enlaces útiles</h4>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Politica
+                                    Privada</a>
+                                <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Terminos &
+                                    Condiciones</a>
+                                <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Nuevos
+                                    Miembros</a>
+                                <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Programa
+                                    Afiliados</a>
+                                <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Devoluciones y
+                                    Reembolso</a>
+                                <a class="text-body" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Ayuda y Preguntas
+                                    Frecuentes</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-5">
+                            <h4 class="text-uppercase text-light mb-4">Car Gallery</h4>
+                            <div class="row mx-n1">
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-1.jpg" alt=""></a>
+                                </div>
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-2.jpg" alt=""></a>
+                                </div>
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-3.jpg" alt=""></a>
+                                </div>
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-4.jpg" alt=""></a>
+                                </div>
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-5.jpg" alt=""></a>
+                                </div>
+                                <div class="col-4 px-1 mb-2">
+                                    <a href=""><img class="w-100" src="img/gallery-6.jpg" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-5">
+                            <h4 class="text-uppercase text-light mb-4">Newsletter</h4>
+                            <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed
+                                kasd et</p>
+                            <div class="w-100 mb-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-dark border-dark" style="padding: 25px;"
+                                        placeholder="Your Email">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary text-uppercase px-3">Sign Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <i>Lorem sit sed elitr sed kasd et</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
+                    <p class="mb-2 text-center text-body">&copy; <a href="#">Proyecto Final Lenguaje Programacion 1</a>. Reservados
+                        todos los derechos. </p>
+
+                </div>
+                <!-- Footer End -->
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+
+                <!-- JavaScript Libraries -->
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+                <script src="lib/easing/easing.min.js"></script>
+                <script src="lib/waypoints/waypoints.min.js"></script>
+                <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="lib/tempusdominus/js/moment.min.js"></script>
+                <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+                <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+                <!-- Template Javascript -->
+                <script src="js/main.js"></script>
 </body>
 
 </html>
