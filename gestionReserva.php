@@ -13,7 +13,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -27,17 +28,20 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
+
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
         <div class="row">
             <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</a>
+                    <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>3207803312</a>
                     <span class="text-body">|</span>
-                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>info@example.com</a>
+                    <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>royalcars@gmail.com</a>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-right">
@@ -76,15 +80,15 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">PAGINA PRINCIPAL</a>
-                        <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                        <a href="service.html" class="nav-item nav-link">Servicios</a>
+                        <a href="index.html" class="nav-item nav-link">PAGINA PRINCIPAL</a>
+                        <a href="about.html" class="nav-item nav-link">NOSOTROS</a>
+                        <a href="service.html" class="nav-item nav-link">SERVICIOS</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cars</a>
+                            <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">VEHICULOS</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="car.html" class="dropdown-item">Listado de carros</a>
                                 <a href="detail.html" class="dropdown-item">Detalles de carros </a>
-                                <a href="booking.html" class="dropdown-item">Resarva tu carro</a>
+                                <a href="booking.php" class="dropdown-item">Resarva tu carro</a>
                                 <a href="gestionReserva.php" class="dropdown-item">Gestion reserva</a>
                             </div>
                         </div>
@@ -92,10 +96,10 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">PAGINAS</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="team.html" class="dropdown-item">Equipo</a>
-                                <a href="testimonial.html" class="dropdown-item">Tesmimonios</a>
+                                <a href="testimonial.html" class="dropdown-item">Testimonios</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link">contacto</a>
+                        <a href="contact.html" class="nav-item nav-link">CONTACTO</a>
                     </div>
                 </div>
             </nav>
@@ -144,7 +148,7 @@
                 </select>
             </div>
             <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Buscar</button>
+                <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
             </div>
         </div>
     </div>
@@ -153,85 +157,151 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
-        <h1 class="display-3 text-uppercase text-white mb-3">Nosotros</h1>
+        <h1 class="display-3 text-uppercase text-white mb-3">Reserva de coche</h1>
         <div class="d-inline-flex text-white">
-            <h6 class="text-uppercase m-0"><a class="text-white" href="">Pagina principal</a></h6>
+            <h6 class="text-uppercase m-0"><a class="text-white" href="index.html">Pagina principal</a></h6>
             <h6 class="text-body m-0 px-3">/</h6>
-            <h6 class="text-uppercase text-body m-0">Nosotros</h6>
+            <h6 class="text-uppercase text-body m-0">Reserva de coche</h6>
         </div>
     </div>
     <!-- Page Header Start -->
 
 
-    <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <h1 class="display-4 text-uppercase text-center mb-5">Bienvenidos a <span class="text-primary">Royal Cars</span></h1>
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <img class="w-75 mb-4" src="img/about.png" alt="">
-                    <p>Justo et eos et ut takimata sed sadipscing dolore lorem, et elitr labore labore voluptua no rebum sed, stet voluptua amet sed elitr ea dolor dolores no clita. Dolores diam magna clita ea eos amet, amet rebum voluptua vero vero sed clita accusam takimata. Nonumy labore ipsum sea voluptua sea eos sit justo, no ipsum sanctus sanctus no et no ipsum amet, tempor labore est labore no. Eos diam eirmod lorem ut eirmod, ipsum diam sadipscing stet dolores elitr elitr eirmod dolore. Magna elitr accusam takimata labore, et at erat eirmod consetetur tempor eirmod invidunt est, ipsum nonumy at et.</p>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fa fa-2x fa-headset text-secondary"></i>
-                        </div>
-                        <h4 class="text-uppercase m-0">Soporte de alquiler de autos 24 horas al día, 7 días a la semana</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-secondary p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fa fa-2x fa-car text-secondary"></i>
-                        </div>
-                        <h4 class="text-light text-uppercase m-0">Reserva de coche en cualquier momento</h4>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-2">
-                    <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
-                        <div class="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary ml-n4 mr-4" style="width: 100px; height: 100px;">
-                            <i class="fa fa-2x fa-map-marker-alt text-secondary"></i>
-                        </div>
-                        <h4 class="text-uppercase m-0">Muchas ubicaciones de recogida</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
 
 
-    <!-- Banner Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
-            <div class="row mx-0">
-                <div class="col-lg-6 px-0">
-                    <div class="px-5 bg-secondary d-flex align-items-center justify-content-between" style="height: 350px;">
-                        <img class="img-fluid flex-shrink-0 ml-n5 w-50 mr-4" src="img/banner-left.png" alt="">
-                        <div class="text-right">
-                            <h3 class="text-uppercase text-light mb-3">¿Quieres ser conductor?</h3>
-                            <p class="mb-4">Lorem justo sit sit ipsum eos lorem kasd, kasd labore</p>
-                            <a class="btn btn-primary py-2 px-4" href="">Empezar ahora</a>
+
+    <!-- Car Booking Start -->
+    <div class="container-fluid pb-5">
+        <div class="container">
+
+
+            <!--captura lo que se envia por el formulario con el boton enviar-->
+            <?php
+
+            // Recoge los datos enviados desde el formulario
+            if (isset($_POST['enviar'])) {
+
+                //Datos del cliente
+                $tipo_documento = $_POST['TIPO_DOCUMENTO'];
+                $documento = $_POST['DOCUMENTO'];
+                $nombre_cliente = $_POST['NOMBRE_CLIENTE'];
+                $fecha_nacimiento = $_POST['FECHA_NACIMIENTO'];
+                $correo = $_POST['EMAIL'];
+                $sexo = $_POST['SEXO'];
+                $direccion_cliente = $_POST['DIRECION_CLIENTE'];
+                $id_cuidad = $_POST['ID_CIUDAD'];
+                $tarjeta = $_POST['TARJETA_CREDITO'];
+                $id_banco = $_POST['ID_BANCO'];
+
+                //Datos de la reserva
+                $ubicacion_Recogida = $_POST['ubicacion_Recogida'];
+                $ubicacion_Entrega = $_POST['ubicacion_Entrega'];
+                $tipo_vehiculo = $_POST['tipo_vehiculo'];
+                $fecha_recogida = $_POST['fecha_recogida'];
+                $fecha_devolucion = $_POST['fecha_entrega'];
+                $id_cliente = $_POST['DOCUMENTO'];
+                $Num_adultos = $_POST['Num_adultos'];
+                $Num_niños = $_POST['Num_niños'];
+                $Observacion = $_POST['Observacion'];
+
+
+                // Incluye el archivo de conexión a la base de datos
+                include('conexion.php');
+
+                // Crea una consulta SQL para insertar los datos en la tabla 'clientes'
+                $sql_cliente = "insert into tbclientes(TIPO_DOCUMENTO, DOCUMENTO, NOMBRE_CLIENTE, FECHA_NACIMIENTO, EMAIL, SEXO, DIRECION_CLIENTE, ID_CIUDAD, TARJETA_CREDITO, ID_BANCO ) 
+                        values('" . $tipo_documento . "', '" . $documento . "','" . $nombre_cliente . "','" . $fecha_nacimiento . "', '" . $correo . "','" . $sexo . "','" . $direccion_cliente . "', '" . $id_cuidad . "', '" . $tarjeta . "', '" . $id_banco . "' )";
+
+                $sql_reserva = "insert into tbreserva(CUIDAD_RECOGE,CUIDAD_ENTREGA,ID_TIPO_VEHICULO,FECHA_RECOGE,FECHA_DEVOLUCION,ID_CLIENTE,NUMERO_ADULTOS,NUMERO_NINOS,OBSERVACION) 
+                        values ('" . $ubicacion_Recogida . "', '" . $ubicacion_Entrega . "','" . $tipo_vehiculo . "', '" . $fecha_recogida . "', '" . $fecha_devolucion . "','" . $id_cliente . "', '" . $Num_adultos . "', '" . $Num_niños . "', '" . $Observacion . "')";
+
+                // Ejecuta la consulta y guarda el resultado
+                $resultado_cliente = mysqli_query($conexion, $sql_cliente);
+                $resultado_reserva = mysqli_query($conexion, $sql_reserva);
+
+                $resultado = $resultado_cliente && $resultado_reserva;
+
+                // Verifica si la consulta fue exitosa y muestra un mensaje de éxito o error mediante JavaScript
+                if ($resultado) {
+                    echo "<script language='JavaScript'>
+						alert('Los datos fueron ingresados a la BD correctamente');
+						location.assign('booking.php');
+					</script>";
+                } else {
+                    echo "<script language='JavaScript'>
+						alert('Los datos NO pudieron ser ingresados a la BD');
+						location.assign('booking.php');
+					</script>";
+                }
+
+                // Cierra la conexión a la base de datos
+                mysqli_close($conexion);
+            }
+            ?>
+
+            <!-- formulario de agregar -->
+            <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Mostrar datos de la tabla tbreserva -->
+                        <div class="container">
+                            <h2 class="mb-4">Reservas Realizadas</h2>
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Ciudad Recoge</th>
+                                        <th>Ciudad Entrega</th>
+                                        <th>Tipo Vehículo</th>
+                                        <th>Fecha Recoge</th>
+                                        <th>Fecha Devolución</th>
+                                        <th>ID Cliente</th>
+                                        <th>Número Adultos</th>
+                                        <th>Número Niños</th>
+                                        <th>Observación</th>
+                                        <th>Gestion Reserva</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    include('conexion.php');
+                                    $query = "SELECT * FROM tbreserva";
+                                    $result = mysqli_query($conexion, $query);
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['ID_RESERVA'] . "</td>";
+                                        echo "<td>" . $row['CUIDAD_RECOGE'] . "</td>";
+                                        echo "<td>" . $row['CUIDAD_ENTREGA'] . "</td>";
+                                        echo "<td>" . $row['ID_TIPO_VEHICULO'] . "</td>";
+                                        echo "<td>" . $row['FECHA_RECOGE'] . "</td>";
+                                        echo "<td>" . $row['FECHA_DEVOLUCION'] . "</td>";
+                                        echo "<td>" . $row['ID_CLIENTE'] . "</td>";
+                                        echo "<td>" . $row['NUMERO_ADULTOS'] . "</td>";
+                                        echo "<td>" . $row['NUMERO_NINOS'] . "</td>";
+                                        echo "<td>" . $row['OBSERVACION'] . "</td>";
+                                        echo "<td><a href='eliminarReserva.php?id=" . $row['ID_RESERVA'] . "'>Eliminar</a>
+                                                <a href='editarReserva.php?id=" . $row['ID_RESERVA'] . "'>Editar</a></td>";
+                                        echo "</tr>";
+                                    }
+                                    mysqli_close($conexion);
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
+
                     </div>
-                </div>
-                <div class="col-lg-6 px-0">
-                    <div class="px-5 bg-dark d-flex align-items-center justify-content-between" style="height: 350px;">
-                        <div class="text-left">
-                            <h3 class="text-uppercase text-light mb-3">¿Buscas un auto?</h3>
-                            <p class="mb-4">Lorem justo sit sit ipsum eos lorem kasd, kasd labore</p>
-                            <a class="btn btn-primary py-2 px-4" href="">Empezar ahora</a>
-                        </div>
-                        <img class="img-fluid flex-shrink-0 mr-n5 w-50 ml-4" src="img/banner-right.png" alt="">
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
+
     </div>
-    <!-- Banner End -->
+    </div>
+
+    <!-- formulario de agregar -->
+
+
+
+
+    </div>
 
 
     <!-- Vendor Start -->
@@ -272,11 +342,11 @@
     <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Ponte en contacto</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>Mz 16 Casa 90 Montebonito, Dosquebradas Risaralda, Colombia</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-white mr-3"></i>3207803312</p>
+                <h4 class="text-uppercase text-light mb-4">Get In Touch</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt text-white mr-3"></i>123 Street, New York, USA</p>
+                <p class="mb-2"><i class="fa fa-phone-alt text-white mr-3"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope text-white mr-3"></i>royalcars@gmail.com</p>
-                <h6 class="text-uppercase text-white py-2">Síganos</h6>
+                <h6 class="text-uppercase text-white py-2">Follow Us</h6>
                 <div class="d-flex justify-content-start">
                     <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-lg btn-dark btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -287,16 +357,22 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-uppercase text-light mb-4">Enlaces útiles</h4>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Politica Privada</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Terminos & Condiciones</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Nuevos Miembros</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Programa Afiliados</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Devoluciones y Reembolso</a>
-                    <a class="text-body" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Ayuda y Preguntas Frecuentes</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Politica
+                        Privada</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Terminos &
+                        Condiciones</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Nuevos
+                        Miembros</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Programa
+                        Afiliados</a>
+                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Devoluciones y
+                        Reembolso</a>
+                    <a class="text-body" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Ayuda y Preguntas
+                        Frecuentes</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Galería de autos</h4>
+                <h4 class="text-uppercase text-light mb-4">Car Gallery</h4>
                 <div class="row mx-n1">
                     <div class="col-4 px-1 mb-2">
                         <a href=""><img class="w-100" src="img/gallery-1.jpg" alt=""></a>
@@ -319,11 +395,13 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="text-uppercase text-light mb-4">Información</h4>
-                <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
+                <h4 class="text-uppercase text-light mb-4">Newsletter</h4>
+                <p class="mb-4">Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed
+                    kasd et</p>
                 <div class="w-100 mb-3">
                     <div class="input-group">
-                        <input type="text" class="form-control bg-dark border-dark" style="padding: 25px;" placeholder="Your Email">
+                        <input type="text" class="form-control bg-dark border-dark" style="padding: 25px;"
+                            placeholder="Your Email">
                         <div class="input-group-append">
                             <button class="btn btn-primary text-uppercase px-3">Sign Up</button>
                         </div>
@@ -334,8 +412,9 @@
         </div>
     </div>
     <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
-        <p class="mb-2 text-center text-body">&copy; <a href="#">Proyecto Final Lenguaje Programacion 1</a>. Reservados todos los derechos. </p>
-        
+        <p class="mb-2 text-center text-body">&copy; <a href="#">Proyecto Final Lenguaje Programacion 1</a>. Reservados
+            todos los derechos. </p>
+
     </div>
     <!-- Footer End -->
 
